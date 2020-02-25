@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Encrypt</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  </head>
+  <body class="bg-light">
+    <div class="container">
+     <div class="py-5 text-center">
+        <h1>Encrypt</h1>
+     </div>
+
+    <div class="row">
+    <div id="input-form" class="col-md-4 order-md-2">
+       <div class="row">
+             <label for="inputField">Message</label>
+               <input type="text" class="form-control" id="inputField" placeholder="" required="true"></input>
+        </div>
+
+        <br>
+            <div class="row">
+                <button id="ecrypt-btn" onclick="onClickEncryptBtn()" class="btn btn-success btn-lg btn-block">Ecrypt</button>
+             </div>
+             <br>
+            <div class="row">
+                <button id="decrypt-btn" disabled="true" onclick="onClickDecryptBtn()" class="btn btn-warning btn-lg btn-block">Decrypt</button>
+             </div>
+        <br>
+        <br>
+        <br>
+            <div class="row">
+                <label for="outputInfoField">info</label>
+                <input readonly type="text" class="form-control" id="outputInfoField" class="form-control" required="true"></input>
+            </div>
+    </div>
+
+
+    <div id="view-table" class="col-md-8 order-md-1">
+       <table class="table table-sm" id="display-table" >
+        <thead>
+          <tr>
+            <th scope="col" style="width: 15%">ID</th>
+            <th scope="col" style="width: 85%">Message</th>
+          </tr>
+         </thead>
+         <tbody>
+        <% if(records !== null){ %>
+            <% for (i in records){ %>
+            <tr id="<%=  records[i].id %>">
+              <td><%=  records[i].id %></td>
+              <td><%= records[i].encryptedMessage %></td>
+            </tr>
+            <% } %>
+        <% } %>
+         </tbody>
+        </table>
+    </div>
+    </div>
+
+    </div>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
